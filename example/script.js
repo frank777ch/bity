@@ -12,6 +12,9 @@ const spriteHeight = 523;
 let frameX = 0;
 let frameY = 0;
 
+let gameFrame = 0;
+const straggerFrames = 2;
+
 // let x = 0;
 
 function animate(){
@@ -29,9 +32,15 @@ function animate(){
     // ctx.fillRect(x, x, 200, 200);
     // x++;
 
-    if (frameX < 6) frameX++;
-    else frameX = 0;
+    /* if (frameX < 6) frameX++;
+    else frameX = 0; */
+
+    if (gameFrame % straggerFrames == 0) {
+        if (frameX < 6) frameX++;
+        else frameX = 0;
+    }
     
+    gameFrame++;
     requestAnimationFrame(animate);
 }
 
